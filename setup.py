@@ -124,7 +124,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    packages=find_packages(include=["sapnil_machinelearning.classifier","sapnil_machinelearning.classifier.*","sapnil_machinelearning.dataset_pre","sapnil_machinelearning.dataset_pre.*","sapnil_machinelearning.feature_eng","sapnil_machinelearning.feature_eng.*"]),  # Required
 
     # Specify which Python versions you support. In contrast to the
     # 'Programming Language' classifiers above, 'pip install' will check this
