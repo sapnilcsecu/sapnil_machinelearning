@@ -124,7 +124,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    packages=find_packages(include=["sapnil_machinelearning.classifier","sapnil_machinelearning.classifier.*","sapnil_machinelearning.dataset_pre","sapnil_machinelearning.dataset_pre.*","sapnil_machinelearning.feature_eng","sapnil_machinelearning.feature_eng.*"]),  # Required
 
     # Specify which Python versions you support. In contrast to the
     # 'Programming Language' classifiers above, 'pip install' will check this
@@ -139,7 +139,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['scikit-learn','pandas','numpy','nltk','pickle','keras'],  # Optional
+    install_requires=['scikit-learn','pandas','numpy','nltk','keras'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
