@@ -10,7 +10,8 @@ def count_word_fit(doc_list,class_labels):
     vocabularyCount = 0
     vocabulary = []
     vocabularySet = set()
-    
+    doc_list=['The government shutdown', 'Federal employees are protesting shutdown', 'Turn melancholy forth to funerals']
+    class_labels=['news','news','poetry']
     
     
      #Using Python's stop-words package to get the stop words in English
@@ -26,7 +27,7 @@ def count_word_fit(doc_list,class_labels):
         
     
    
-    
+    temp_class_labels=class_labels
     class_labels = list(dict.fromkeys(class_labels))    
     
     #class_eachtoken_count = [[0 for x in range(vocabularyCount)] for y in range(len(class_labels))]    
@@ -47,7 +48,7 @@ def count_word_fit(doc_list,class_labels):
         class_eachtoken_count[class_label]={}
         for voc in vocabulary:
             class_eachtoken_count[class_label] [voc] = 0
-            print(class_eachtoken_count[str(class_label)] [voc])
+            #print(class_eachtoken_count[str(class_label)] [voc])
             
     
     #test purpose
@@ -69,16 +70,23 @@ def count_word_fit(doc_list,class_labels):
         #test purpose
     '''
             
-    doc_count=0
+    
+   
+    doccount=0
     for doc in doc_list:
         words = doc.split(" ");
+        #print('the word',words)
+        class_label=temp_class_labels[doccount]
+       # print("ths doccount ",doccount)
+        #print("ths class ",class_label)
         for word in words:
             if word in vocabularySet:
-                label=class_labels[doc_count]
-                ++class_eachtoken_count[label][word] 
-               # ++total_class_token[doc_count] 
-               
-        ++doc_count 
+                class_eachtoken_count[class_label][word]=class_eachtoken_count[class_label][word]+1 
+        #print('the count',class_eachtoken_count[class_label][word])
+        #++total_class_token[doc_count] 
+        
+        doccount=doccount+1    
     print(class_eachtoken_count)         
             
-    return vocabularyCount,class_eachtoken_count,total_class_token,class_labels,vocabulary
+    #return vocabularyCount,class_eachtoken_count,total_class_token,class_labels,vocabulary
+    return 0
