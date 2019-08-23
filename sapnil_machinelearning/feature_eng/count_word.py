@@ -6,17 +6,15 @@ Created on Aug 19, 2019
 from stop_words import get_stop_words
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-
-from nltk.stem import WordNetLemmatizer 
-
+#from nltk.stem import WordNetLemmatizer 
 import string
 import re
-
-
 from nltk.corpus import wordnet as wn
 from nltk.stem.wordnet import WordNetLemmatizer
-from nltk import word_tokenize, pos_tag
+from nltk import  pos_tag
 from collections import defaultdict
+from model.model_data import model_data
+
 
 def count_word_fit(doc_list,class_labels):
     vocabularyCount = 0
@@ -26,12 +24,9 @@ def count_word_fit(doc_list,class_labels):
     tag_map['V'] = wn.VERB
     tag_map['R'] = wn.ADV
     
-    #vocabularySet = set()
-   # doc_list=['The government shutdown', 'Federal employees are protesting shutdown', 'Turn melancholy forth to funerals']
-   # class_labels=['news','news','poetry']
+   
     
-    
-     #Using Python's stop-words package to get the stop words in English
+    #Using Python's stop-words package to get the stop words in English
     
     stop_words = get_stop_words('english')
     for doc in doc_list:
@@ -64,20 +59,13 @@ def count_word_fit(doc_list,class_labels):
         rvm_stop_words = [w for w in Final_words if not w in stop_words]
         #remove stop words
         
-       
-        
-        
         for word in rvm_stop_words:                        
             if word not in vocabulary:
                 vocabulary.append(word)
                 vocabularyCount = vocabularyCount + 1
-        
     
-   
     temp_class_labels=class_labels
     class_labels = list(dict.fromkeys(class_labels))    
-    
-    
     
     total_class_token={}
     
@@ -90,12 +78,7 @@ def count_word_fit(doc_list,class_labels):
         for voc in vocabulary:
             class_eachtoken_count[class_label] [voc] = 0
             #print(class_eachtoken_count[str(class_label)] [voc])
-            
     
-    
-            
-    
-   
     doccount=0
     total_voca_count=0
     for doc in doc_list:
@@ -111,9 +94,7 @@ def count_word_fit(doc_list,class_labels):
        
         
         doccount=doccount+1
-    print(class_eachtoken_count)        
-    print(total_voca_count)
-    print(total_class_token)         
-            
-    #return vocabularyCount,class_eachtoken_count,total_class_token,class_labels,vocabulary
-    return 0
+         
+    data=model_data(vocabularyCount,class_eachtoken_count,total_class_token,class_labels,vocabulary)       
+    return data
+    #return 0
