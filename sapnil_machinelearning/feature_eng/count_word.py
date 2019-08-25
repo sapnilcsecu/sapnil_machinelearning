@@ -30,9 +30,12 @@ def count_word_fit(doc_list,class_labels):
     
     stop_words = get_stop_words('english')
     for doc in doc_list:
+        
         result_doc = re.sub(r'\d+', '', doc)
         
         words = word_tokenize(result_doc)
+        
+        
         low_tokens = [w.lower() for w in words]
         #words = doc.split(" ")
         #REMOVE punctuation mark
@@ -40,10 +43,11 @@ def count_word_fit(doc_list,class_labels):
         pun_words = [w.translate(table) for w in low_tokens]
         emp_str_list = list(filter(None, pun_words)) 
         #REMOVE punctuation mark
-    
+        
         # Lemmatize list of words and join
         # Init the Wordnet Lemmatizer
         # Declaring Empty List to store the words that follow the rules for this step
+        
         Final_words = []
         # Initializing WordNetLemmatizer()
         word_Lemmatized = WordNetLemmatizer()
@@ -53,7 +57,7 @@ def count_word_fit(doc_list,class_labels):
             if word not in stopwords.words('english') and word.isalpha():
                 word_Final = word_Lemmatized.lemmatize(word,tag_map[tag[0]])
                 Final_words.append(word_Final)
-    
+        
         #remove stop words
         stop_words = set(stopwords.words('english'))
         rvm_stop_words = [w for w in Final_words if not w in stop_words]

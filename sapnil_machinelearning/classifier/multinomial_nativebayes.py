@@ -8,7 +8,7 @@ from nltk.tokenize import word_tokenize
 
 
 
-def multi_nativebayes_predict(model_data,test_dataset,testlabelcopy):
+def multi_nativebayes_predict(model_data,test_dataset):
     condProbabilityOfTermClass={}
     final_doc_class_label={}
     doccount=0;
@@ -46,3 +46,19 @@ def multi_nativebayes_predict(model_data,test_dataset,testlabelcopy):
                     
         
     return final_doc_class_label
+
+
+
+def accuracy_score(testlabelcopy,final_doc_class_label):
+    label_count=0
+    wrong_count=0
+    for label in testlabelcopy:
+        if label !=final_doc_class_label['doc'+'-'+str(label_count)] :
+            wrong_count=wrong_count+1
+    label_count=label_count+1
+    
+    accuracy = ((len(testlabelcopy)-wrong_count)/len(testlabelcopy))*100
+    
+    return accuracy     
+        
+        
