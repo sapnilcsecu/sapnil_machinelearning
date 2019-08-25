@@ -16,7 +16,7 @@ def main():
     trainSet, testcopy, labelset, testlabelcopy=splitDataset(txt_text, txt_label,0.2)
     model_input=count_word_fit(trainSet,labelset)
 
-    multi_nativebayes_predict(model_input)
-    
+    final_doc_class_label=multi_nativebayes_predict(model_input,testcopy,testlabelcopy)
+    print(final_doc_class_label)
 if __name__ == '__main__':
     main()
