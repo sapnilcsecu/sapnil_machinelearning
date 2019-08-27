@@ -124,8 +124,8 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(include=["sapnil_machinelearning.classifier","sapnil_machinelearning.classifier.*","sapnil_machinelearning.dataset_pre","sapnil_machinelearning.dataset_pre.*","sapnil_machinelearning.feature_eng","sapnil_machinelearning.feature_eng.*"]),  # Required
-
+    #packages=find_packages(include=["sapnil_machinelearning.classifier","sapnil_machinelearning.classifier.*","sapnil_machinelearning.dataset_pre","sapnil_machinelearning.dataset_pre.*","sapnil_machinelearning.feature_eng","sapnil_machinelearning.feature_eng.*","sapnil_machinelearning.model","sapnil_machinelearning.model.*"]),  # Required
+	packages=["sapnil_machinelearning.classifier","sapnil_machinelearning.dataset_pre","sapnil_machinelearning.feature_eng","sapnil_machinelearning.model"],
     # Specify which Python versions you support. In contrast to the
     # 'Programming Language' classifiers above, 'pip install' will check this
     # and refuse to install the project if the version does not match. If you
@@ -139,7 +139,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['scikit-learn','pandas','numpy','nltk','keras'],  # Optional
+    install_requires=['pandas','numpy','nltk'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
