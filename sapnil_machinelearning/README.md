@@ -2,15 +2,9 @@
 
 <p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000">This is machine learning tools for textmining. Present it support only supervised machine learning for text classification.</span></span></p>
 
-<p>&nbsp;</p>
-
 <p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:large"><u><strong>Release</strong></u></span><span style="font-size:large"><u> </u></span> </span></span></p>
 
-<p>&nbsp;</p>
-
 <p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><strong>Release 1.0:</strong></span></span></p>
-
-<p>&nbsp;</p>
 
 <ul>
 	<li>
@@ -27,8 +21,6 @@
 <p>&nbsp;</p>
 
 <p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><strong><span style="font-size:large"><u>Installation :</u></span></strong></span></span></p>
-
-<p>&nbsp;</p>
 
 <h4><span style="font-family:Times New Roman,Times,serif"><strong><span style="color:#000000"><span style="font-size:medium">Dependencies:</span></span></strong></span></h4>
 
