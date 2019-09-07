@@ -38,12 +38,9 @@
 	</li>
 </ul>
 
-<p><br />
-&nbsp;</p>
-
 <h4><span style="font-family:Times New Roman,Times,serif"><u><strong><span style="color:#000000"><span style="font-size:medium">User installation:</span></span></strong></u></span></h4>
 
-<p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium"><u><strong>Windows </strong></u></span></span></span></p>
+<p><span style="color:#000000"><span style="font-family:Times New Roman,serif"><span style="font-size:medium"><u><strong>Windows installation</strong></u></span></span></span></p>
 
 <p><span style="font-family:Times New Roman,Times,serif"><span style="color:#000000"><span style="font-size:medium">After cloning reprository go to sapnil_machinelearning folder from commad line.Then press the following commad from commad prompt </span></span></span></p>
 
