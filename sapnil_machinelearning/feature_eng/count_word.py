@@ -37,7 +37,7 @@ def count_word_fit(doc_list,class_labels):
         
         
         low_tokens = [w.lower() for w in words]
-        #words = doc.split(" ")
+      
         #REMOVE punctuation mark
         table = str.maketrans('', '', string.punctuation)
         pun_words = [w.translate(table) for w in low_tokens]
@@ -81,13 +81,13 @@ def count_word_fit(doc_list,class_labels):
         class_eachtoken_count[class_label]={}
         for voc in vocabulary:
             class_eachtoken_count[class_label] [voc] = 0
-            #print(class_eachtoken_count[str(class_label)] [voc])
+           
     
     doccount=0
     total_voca_count=0
     for doc in doc_list:
         words = doc.split(" ");
-        #print('the word',words)
+       
         class_label=temp_class_labels[doccount]
       
         for word in words:
