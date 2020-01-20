@@ -7,10 +7,12 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import string
 from nltk.stem.porter import PorterStemmer
+import re
+
 
 def txt_clean(docList):
     
-    documents=[]
+    documents = []
     for doc in docList:
         
         tokens = word_tokenize(doc)
@@ -30,8 +32,18 @@ def txt_clean(docList):
         porter = PorterStemmer()
         stemmed = [porter.stem(word) for word in words]
         
-        
         documents.append(str(stemmed))
         
+    return documents
+
+
+def vulnerability_txt_clean(docList):
+    documents = []
+    
+    for doc in docList:
+        doc = re.sub(r'[^a-z]+', ' ', doc)
+        doc = re.sub(r'\s+', ' ', doc, flags=re.I)
+        documents.append(str(doc))
+    
     return documents
 
