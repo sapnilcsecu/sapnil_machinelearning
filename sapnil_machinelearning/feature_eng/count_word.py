@@ -6,7 +6,7 @@ Created on Aug 19, 2019
 from stop_words import get_stop_words
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
-#from nltk.stem import WordNetLemmatizer 
+# from nltk.stem import WordNetLemmatizer 
 import string
 import re
 from nltk.corpus import wordnet as wn
@@ -16,7 +16,7 @@ from collections import defaultdict
 from model.model_data import model_data
 
 
-def count_word_fit(doc_list,class_labels):
+def count_word_fit(doc_list, class_labels):
     vocabularyCount = 0
     vocabulary = []
     tag_map = defaultdict(lambda : wn.NOUN)
@@ -24,9 +24,7 @@ def count_word_fit(doc_list,class_labels):
     tag_map['V'] = wn.VERB
     tag_map['R'] = wn.ADV
     
-   
-    
-    #Using Python's stop-words package to get the stop words in English
+    # Using Python's stop-words package to get the stop words in English
     
     stop_words = get_stop_words('english')
     for doc in doc_list:
@@ -35,14 +33,13 @@ def count_word_fit(doc_list,class_labels):
         
         words = word_tokenize(result_doc)
         
-        
         low_tokens = [w.lower() for w in words]
       
-        #REMOVE punctuation mark
+        # REMOVE punctuation mark
         table = str.maketrans('', '', string.punctuation)
         pun_words = [w.translate(table) for w in low_tokens]
         emp_str_list = list(filter(None, pun_words)) 
-        #REMOVE punctuation mark
+        # REMOVE punctuation mark
         
         # Lemmatize list of words and join
         # Init the Wordnet Lemmatizer
@@ -55,50 +52,100 @@ def count_word_fit(doc_list,class_labels):
         for word, tag in pos_tag(emp_str_list):
         # Below condition is to check for Stop words and consider only alphabets
             if word not in stopwords.words('english') and word.isalpha():
-                word_Final = word_Lemmatized.lemmatize(word,tag_map[tag[0]])
+                word_Final = word_Lemmatized.lemmatize(word, tag_map[tag[0]])
                 Final_words.append(word_Final)
         
-        #remove stop words
+        # remove stop words
         stop_words = set(stopwords.words('english'))
         rvm_stop_words = [w for w in Final_words if not w in stop_words]
-        #remove stop words
+        # remove stop words
         
         for word in rvm_stop_words:                        
             if word not in vocabulary:
                 vocabulary.append(word)
                 vocabularyCount = vocabularyCount + 1
     
-    temp_class_labels=class_labels
+    temp_class_labels = class_labels
     class_labels = list(dict.fromkeys(class_labels))    
     
-    total_class_token={}
+    total_class_token = {}
     
-    #print(vocabulary)
-    class_eachtoken_count={} 
+    # print(vocabulary)
+    class_eachtoken_count = {} 
     
     for class_label in class_labels: 
-        total_class_token[class_label]=0
-        class_eachtoken_count[class_label]={}
+        total_class_token[class_label] = 0
+        class_eachtoken_count[class_label] = {}
         for voc in vocabulary:
             class_eachtoken_count[class_label] [voc] = 0
-           
     
-    doccount=0
-    total_voca_count=0
+    doccount = 0
+    total_voca_count = 0
     for doc in doc_list:
         words = doc.split(" ");
        
-        class_label=temp_class_labels[doccount]
+        class_label = temp_class_labels[doccount]
       
         for word in words:
             if word in vocabulary:
-                class_eachtoken_count[class_label][word]=class_eachtoken_count[class_label][word]+1 
-                total_class_token[class_label]=total_class_token[class_label]+1
-                total_voca_count=total_voca_count+1
-       
+                class_eachtoken_count[class_label][word] = class_eachtoken_count[class_label][word] + 1 
+                total_class_token[class_label] = total_class_token[class_label] + 1
+                total_voca_count = total_voca_count + 1
         
-        doccount=doccount+1
+        doccount = doccount + 1
          
-    data=model_data(vocabularyCount,class_eachtoken_count,total_class_token,class_labels,vocabulary)       
+    data = model_data(vocabularyCount, class_eachtoken_count, total_class_token, class_labels, vocabulary)       
     return data
-    #return 0
+    # return 0
+    
+    
+def count_ver_word_fit(doc_list, class_labels): 
+    vocabularyCount = 0
+    vocabulary = []
+   
+    # Using Python's stop-words package to get the stop words in English
+    
+    for doc in doc_list:
+        
+        doc = re.sub(r'[^a-z]+', ' ', doc)
+        doc = re.sub(r'\s+', ' ', doc, flags=re.I)
+        # documents.append(str(doc))
+        
+         # remove stop words
+        
+        for word in doc:                        
+            if word not in vocabulary:
+                vocabulary.append(word)
+                vocabularyCount = vocabularyCount + 1
+    
+    temp_class_labels = class_labels
+    class_labels = list(dict.fromkeys(class_labels))    
+    
+    total_class_token = {}
+    
+    # print(vocabulary)
+    class_eachtoken_count = {} 
+    
+    for class_label in class_labels: 
+        total_class_token[class_label] = 0
+        class_eachtoken_count[class_label] = {}
+        for voc in vocabulary:
+            class_eachtoken_count[class_label] [voc] = 0
+    
+    doccount = 0
+    total_voca_count = 0
+    for doc in doc_list:
+        words = doc.split(" ");
+       
+        class_label = temp_class_labels[doccount]
+      
+        for word in words:
+            if word in vocabulary:
+                class_eachtoken_count[class_label][word] = class_eachtoken_count[class_label][word] + 1 
+                total_class_token[class_label] = total_class_token[class_label] + 1
+                total_voca_count = total_voca_count + 1
+        
+        doccount = doccount + 1
+         
+    data = model_data(vocabularyCount, class_eachtoken_count, total_class_token, class_labels, vocabulary)
+    return data   
