@@ -33,6 +33,7 @@ def multi_nativebayes_predict(model_data, test_dataset):
         vocabularyCount = model_data.get_vocabularyCount()
         total_class_token = model_data.get_total_class_token()
         for class_label in model_data.get_class_labels():
+            #print('total_class_token',total_class_token[class_label])
             score_Class = math.log(total_class_token[class_label] / vocabularyCount) + condProbabilityOfTermClass[class_label]
             # print('the score_Class ',score_Class)
             if(max_score > score_Class):

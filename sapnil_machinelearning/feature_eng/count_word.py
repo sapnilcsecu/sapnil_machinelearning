@@ -106,14 +106,17 @@ def count_ver_word_fit(doc_list, class_labels):
     # Using Python's stop-words package to get the stop words in English
     
     for doc in doc_list:
-        
+      
         doc = re.sub(r'[^a-z]+', ' ', doc)
         doc = re.sub(r'\s+', ' ', doc, flags=re.I)
+        #print('the doc is11 ',doc)
+       # print('the doc is ',doc)
         # documents.append(str(doc))
         
          # remove stop words
-        
-        for word in doc:                        
+        result_doc=word_tokenize(doc)
+        print('the doc is11 ',result_doc)
+        for word in result_doc:                        
             if word not in vocabulary:
                 vocabulary.append(word)
                 vocabularyCount = vocabularyCount + 1
@@ -143,6 +146,7 @@ def count_ver_word_fit(doc_list, class_labels):
             if word in vocabulary:
                 class_eachtoken_count[class_label][word] = class_eachtoken_count[class_label][word] + 1 
                 total_class_token[class_label] = total_class_token[class_label] + 1
+                #print("total_class_token is ",total_class_token)
                 total_voca_count = total_voca_count + 1
         
         doccount = doccount + 1

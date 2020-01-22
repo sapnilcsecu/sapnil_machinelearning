@@ -37,13 +37,10 @@ def txt_clean(docList):
     return documents
 
 
-def vulnerability_txt_clean(docList):
-    documents = []
-    
-    for doc in docList:
+def vulnerability_txt_clean(doc):
         doc = re.sub(r'[^a-z]+', ' ', doc)
         doc = re.sub(r'\s+', ' ', doc, flags=re.I)
-        documents.append(str(doc))
-    
-    return documents
+        result_doc=word_tokenize(doc)
+            
+        return result_doc
 
