@@ -106,9 +106,9 @@ def count_ver_word_fit(doc_list, class_labels):
     # Using Python's stop-words package to get the stop words in English
     
     for doc in doc_list:
-      
-        doc = re.sub(r'[^a-z]+', ' ', doc)
-        doc = re.sub(r'\s+', ' ', doc, flags=re.I)
+        doc=re.sub("\d+", " ", doc)
+        #doc = re.sub(r'[^a-z]+', ' ', doc)
+        #doc = re.sub(r'\s+', ' ', doc, flags=re.I)
         #print('the doc is11 ',doc)
        # print('the doc is ',doc)
         # documents.append(str(doc))
