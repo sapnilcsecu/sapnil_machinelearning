@@ -11,7 +11,7 @@ from classifier.multinomial_nativebayes import multi_nativebayes_verna_predict
 from classifier.multinomial_nativebayes import accuracy_score
 
 def main():
-    trainDF = load_cvs_dataset("../xss.csv")
+    trainDF = load_cvs_dataset("../verfullpayload.csv")
     txt_label = trainDF['label']
     txt_text = trainDF['payload']
     #trainSet, testcopy, labelset, testlabelcopy=splitDataset(txt_text, txt_label,0.2)

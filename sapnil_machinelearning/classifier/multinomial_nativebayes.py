@@ -62,6 +62,7 @@ def multi_nativebayes_verna_predict(model_data, test_dataset):
             condProbabilityOfTermClass[class_label] = 0
             total_class_token = model_data.get_total_class_token()
             for word in words:
+                word=word.lower()
                 class_eachtoken_count = model_data.get_class_eachtoken_count()
                 vocabulary = model_data.get_vocabulary()
                 if(word in vocabulary):
@@ -107,6 +108,7 @@ def live_nativebayes_predict(model_data, input_doc):
         condProbabilityOfTermClass[class_label] = 0
         total_class_token = model_data.get_total_class_token()
         for word in words:
+            
             class_eachtoken_count = model_data.get_class_eachtoken_count()
             if(word in class_eachtoken_count):
                 condProbabilityOfTermClass[class_label] = condProbabilityOfTermClass[class_label] + math.log((class_eachtoken_count[class_label][word] + 1) / (total_class_token[class_label] + 1))

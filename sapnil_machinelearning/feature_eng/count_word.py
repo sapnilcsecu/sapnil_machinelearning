@@ -118,6 +118,7 @@ def count_ver_word_fit(doc_list, class_labels):
         print('the doc is11 ',result_doc)
         for word in result_doc:                        
             if word not in vocabulary:
+                word=word.lower()
                 vocabulary.append(word)
                 vocabularyCount = vocabularyCount + 1
     

