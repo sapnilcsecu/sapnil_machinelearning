@@ -54,10 +54,10 @@ def multi_nativebayes_verna_predict(model_data, test_dataset):
     doccount = 0;
 
     for doc in test_dataset:
-        doc=re.sub("\d+", " ", doc)
+        #doc=re.sub("\d+", " ", doc)
         final_doc_class_label['doc' + '-' + str(doccount)] = ''
         words = word_tokenize(doc)
-        
+        print('the doc is'+str(doccount)+'',words)
         for class_label in model_data.get_class_labels(): 
             condProbabilityOfTermClass[class_label] = 0
             total_class_token = model_data.get_total_class_token()
@@ -66,11 +66,11 @@ def multi_nativebayes_verna_predict(model_data, test_dataset):
                 class_eachtoken_count = model_data.get_class_eachtoken_count()
                 vocabulary = model_data.get_vocabulary()
                 if(word in vocabulary):
-                    print("word exist in voca")
+                   # print("word exist in voca")
                     condProbabilityOfTermClass[class_label] = condProbabilityOfTermClass[class_label] + math.log((class_eachtoken_count[class_label][word] + 1) / (total_class_token[class_label] + 1))
                 else:
-                    print("word not exist in voca")
-                    condProbabilityOfTermClass[class_label] = 0;
+                    print("word not exist in voca"+word)
+                    condProbabilityOfTermClass[class_label] = condProbabilityOfTermClass[class_label]+0;
         
         score_Class = 0
         max_score = 0
@@ -84,7 +84,7 @@ def multi_nativebayes_verna_predict(model_data, test_dataset):
                 continue
             # print('total_class_token',total_class_token[class_label])
             score_Class = math.log(total_class_token[class_label] / vocabularyCount) + condProbabilityOfTermClass[class_label]
-            # print('the score_Class ',score_Class)
+          #  print('the score_Class ',score_Class)
             if(max_score > score_Class):
                 max_score = score_Class
                 final_class_label = class_label
@@ -189,7 +189,7 @@ def accuracy_score(testlabelcopy, final_doc_class_label):
     label_count = 0
     wrong_count = 0
     for label in testlabelcopy:
-        print(final_doc_class_label['doc' + '-' + str(label_count)]+' '+str(label_count))
+       # print(final_doc_class_label['doc' + '-' + str(label_count)]+' '+str(label_count))
         if label != final_doc_class_label['doc' + '-' + str(label_count)] :
             wrong_count = wrong_count + 1
         label_count = label_count + 1

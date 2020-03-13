@@ -107,6 +107,8 @@ def count_ver_word_fit(doc_list, class_labels):
     
     for doc in doc_list:
         doc=re.sub("\d+", " ", doc)
+        doc=re.sub("[!@#$]", " ", doc)
+        
         #doc = re.sub(r'[^a-z]+', ' ', doc)
         #doc = re.sub(r'\s+', ' ', doc, flags=re.I)
         #print('the doc is11 ',doc)
@@ -115,7 +117,7 @@ def count_ver_word_fit(doc_list, class_labels):
         
          # remove stop words
         result_doc=word_tokenize(doc)
-        print('the doc is11 ',result_doc)
+        #print('the doc is11 ',result_doc)
         for word in result_doc:                        
             if word not in vocabulary:
                 word=word.lower()

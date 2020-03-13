@@ -24,3 +24,14 @@ payload,attack_type,label
 "a=""get"";",xss,anom
 "<!--<value><![cdata[<xml id=i><x><c><![cdata[<img id=xss src=""javas<![cdata[cript:alert('xss');"">",xss,anom
 "<xml id=xss src=""http://ha.ckers.org/xsstest.xml"" id=i></xml>",xss,anom
+robieux,norm,norm
+cuatriduana,norm,norm
+1565,norm,norm
+darby,norm,norm
+ti7o,norm,norm
+folch pintado,norm,norm
+thalasso.chappell@titulosoficiales.jp,norm,norm
+00474767r,norm,norm
+manuel pereira,norm,norm
+350,norm,norm
+esther,norm,norm
